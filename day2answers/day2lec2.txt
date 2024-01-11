@@ -91,8 +91,20 @@ style:
     position: absolute;
     bottom: 100px;
     left: 25px;}
+script:
+ let btn = document.getElementById("btn")
+    btn.addEventListener('click',()=>{
+        let name = document.getElementById("txt1").value
+        let email = document.getElementById("txt2").value
+ localStorage.setItem("name",name)
+        localStorage.setItem("addr",addr)
+        console.log(localStorage.getItem("name",name))
+        console.log(localStorage.getItem("email",email))
 HTML
 <div class="div2">
+<input type="text" id="txt1">
+<input type="text" id="txt2">
+<button id="btn">submit</button>
 <img  class="photo" src="./Annotation 2024-01-11 020231.jpg" alt="photo">
 <h2>This is text </h2>
 </div>
