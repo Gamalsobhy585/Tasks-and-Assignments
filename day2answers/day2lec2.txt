@@ -1,0 +1,98 @@
+Task1 
+<style>
+img:hover{
+    transition: 5s;
+    opacity: 10%;
+}
+img{
+    transition: 5s;
+}
+    </style>
+HTML
+</head>
+<body>
+<img class src="./Annotation 2024-01-11 020231.jpg" alt="photo">
+</body>
+</html>
+ 
+
+
+//Task2
+HTMl
+<button class="btn">Hover to link</button>
+style
+.btn{
+    width: 100px;
+    border: 2px solid blue;
+    border-radius: 10px;}
+  
+  .btn:hover{  
+    animation-name: myAnim;
+    animation-delay: 2s;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+}
+@keyframes myAnim {
+    0%{
+        background: red;
+
+    }
+    15%{
+        background: blue;
+    }
+    30%{
+        background: green;
+    }
+    70%{
+        background: yellow;
+    }
+    100%{
+        background: orange;
+    }
+    
+}
+
+
+
+Task3
+style:
+input:focus,:invalid{
+    border: 2px solid red;
+    
+    }
+
+
+input:focus,:invalid:hover:after{
+    border: 2px solid red;
+    content: "plz your email should be like example123@abc.com";
+
+}
+
+input:focus,:valid{
+    border: 2px solid green;
+}
+HTML
+<div>
+<input type="text" placeholder="username" class="user">
+    <input type="email" placeholder="email" class="mail">
+<button>submit</button>
+</div>
+
+
+
+//Task4
+style:
+.div2 .photo{
+    position: relative;
+}
+.div2 h2{
+    position: absolute;
+    bottom: 100px;
+    left: 25px;}
+HTML
+<div class="div2">
+<img  class="photo" src="./Annotation 2024-01-11 020231.jpg" alt="photo">
+<h2>This is text </h2>
+</div>

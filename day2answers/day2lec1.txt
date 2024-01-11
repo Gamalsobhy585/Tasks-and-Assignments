@@ -1,0 +1,91 @@
+//Task1
+function getLoc(){
+       let x= navigator.geolocation.watchPosition(showPos,handleErr,options)
+    }
+    function showPos (position){
+        // console.log(position)
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+// console.log(lat,long)
+location.assign("http://maps.google.com/maps?q="+lat+',+'+long)
+navigator.geolocation.clearWatch(x);
+    }
+    function handleErr(x){
+console.log(x)
+switch(x.code){
+    case 0:
+        console.log("unknown  error" + x.message);
+        break;
+        case 1:
+        console.log("permesiion denied" + x.message);
+        break;
+        case 2:
+        console.log("Pos unavailable" + x.message);
+        case 3:
+        console.log("timeout" + x.message);
+
+
+}
+    }
+    let options ={
+        enableHighAccuracy :false,
+        timeout:Infinity,
+        maximumAge:3600000
+    }
+
+Task2 
+//web worker
+<h2>Web Worker </h2>
+<button id="sum">calc sum</button>
+<button id="bcg">change bcg</button>
+<script>
+    //web Worker
+    let worker = new Worker("worker.js")//first step
+    let sum=document.getElementById("sum")
+    let bg = document.getElementById("bcg")
+    sum.onclick = function(){
+        // let s=0;
+        // for(let i=0 ; i<1000000;i++){
+        //     s+= i;
+        // }
+        // alert(s);
+        worker.postMessage("")
+    }
+    worker.onmessage=function(message){
+        console.log(message)
+        alert(message.data)
+    }
+    bg.onclick=function(){
+        if(document.body.style.background !== 'green'){
+            document.body.style.background="green"
+        }else{
+            document.body.style.background="blue"
+        }
+    }
+</script>
+
+
+//Task4
+<div itemscope itemtype="https://schema.org/Organization">
+  <span itemprop="name">.SD&Gaming coE,ITI</span>
+Tel:<span itemprop="telephone">35355695 </span>,
+ Fax:<span itemprop="url">/http://www.iti.gov.eg</span>
+
+Contact Details:
+  <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+    Main address:
+      <span itemprop="streetAddress">km 28 Cairo-Alexandia Desert Road</span>
+      <span itemprop="postalCode">11371</span>
+      <span itemprop="addressLocality">Smart Village</span>
+  <span itemprop="region"> Giza </span>
+  <span itemprop="country-name"> Egypt</span>
+  </div>
+    
+Geographic informations:
+ <span itemprop="Geo" itemscope itemtype="https://schema.org/Geo">
+   <span itemprop="latitude">N 38.5323</span>
+ <span itemprop="longitude">W 77.0040</span>
+ </span>,
+ 
+History:
+</div>
