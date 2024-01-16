@@ -1,0 +1,58 @@
+//Task1
+//HTML
+ <img src="../images/rabbit.jpg" id="rabbit">
+    <hr>
+    <img src="../images/blackhole.png" id="hole">
+//javascript
+//Task2
+//html
+<div style="display: flex;">
+        <input value="Add Task Here"> 
+        <button type="button" >Add</button>
+
+      </div>
+      <div style="display: flex;align-items: center;">
+        <li class="ui-widget-content">Football</li>
+        <button style="background: #faebd7; color: #8e8d8a;border-radius: 10px;height: fit-content;margin: 5px;" type="button" >Done</button>
+  <button style="background: #faebd7; color: #8e8d8a;border-radius: 10px;height: fit-content;margin: 5px;" type="button" >Delete</button>
+</div>
+<div style="display: flex;">
+  <li class="ui-widget-content">swimming</li>
+  <button style="background: #faebd7; color: #8e8d8a;border-radius: 10px;height: fit-content;margin: 5px;" type="button" >Done</button>
+  <button style="background: #faebd7; color: #8e8d8a;border-radius: 10px;height: fit-content;margin: 5px;" >Delete</button>
+</div>
+
+//css
+<style>
+      #feedback { font-size: 1.4em; }
+      #selectable .ui-selecting { background: green; border-radius: 10px; }
+      #selectable .ui-selected { background: green; color: white;border-radius: 10px; }
+      #selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+      #selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+      </style>
+
+
+    <script>
+ $( function() {
+    $( "#selectable" ).selectable();
+  } );
+    </script>
+//Task3
+//html
+<button id="btnn">get data</button>
+
+//java
+ $("#btnn").on("click",function(){
+            $.ajax({
+                url:"https://dummyjson.com/products/2",
+                success:function(res){
+                    console.log(res)
+                        $("#data").append(res.title)
+                },
+                error:function(err){
+                    console.log(err)
+                }
+            })
+        })
+
+</script>
