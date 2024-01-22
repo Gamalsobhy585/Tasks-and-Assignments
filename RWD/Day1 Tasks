@@ -1,0 +1,253 @@
+//Task1
+HTML  
+
+  <nav class="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+    <div class="one">
+        <div>This is a flex item</div>
+<p class="foot">Footer</p>    
+</div>
+    <div class="two">
+        <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus nemo velit assumenda similique aliquid molestiae? Delectus,
+             repudiandae doloremque dolores excepturi ab nostrum error assumenda pariatur cumque rerum,
+              quisquam blanditiis quos?</div>
+        <p class="foot">Footer</div> 
+        
+        </div>
+    </div>
+
+
+CSS
+.menu{
+    position: relative;
+    top: 0;
+}
+ul{
+    background-color: #f1f1f1;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    color: black;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-around;
+    /* gap: 50px; */
+}
+ul li{
+    list-style-type: none;
+    padding: 10px;
+    text-decoration: none;
+    display: flex;
+
+
+}
+ul li a{
+    text-decoration: none;
+    color: black;
+
+
+}
+.container{
+    display: flex;
+    gap: 10px;
+
+}
+.container div{
+    border: 2px solid black;
+    /* gap: 10px; */
+    /* margin: 0px 10px; */
+    flex-basis: 50%;
+    height: 300px;
+    position: relative;
+}
+
+.foot{
+    background: #f1f1f1;
+    bottom: 0;
+
+}
+.container div p{
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+}
+.one{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+
+}
+.one div{
+    border: none;
+    margin-top: 50px;
+
+}
+.two div{
+    border: none;
+    margin-top: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+//Task2
+HTMl:
+ <div class="one">
+    <div class="two">
+        <p>item</p> 
+     </div>
+</div>  
+ </div>
+CSS :
+
+ .one{
+    border: 2px solid black;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    height: 500px;
+    width: 500px;
+    justify-content: center;    
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+
+} 
+ .two{
+border: 1px solid orange ;
+height: 100px;
+width: 100px;
+display: flex;
+justify-content: start;
+align-items: start;
+position: relative;
+
+}
+.two p{
+    align-self: start;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+}
+
+
+//Task3
+HTML
+<!-- Task3 -->
+<section>
+    <header> Header</header>
+    
+    <aside class="snav">Side-Nav</aside>
+    <article>Main Content</article>
+    <aside class="sbar">Side-Bar</aside>
+    <footer>footer</footer>
+</section>
+
+//CSS
+section{
+    background-color: antiquewhite;
+    grid-auto-rows: minmax(100px,auto);
+    display: grid;
+
+    grid-template-areas:
+    "head head head"
+    "snav main sbar"
+    "snav main sbar"
+    "snav main sbar"
+    "snav main sbar"
+    "foot foot foot"
+
+
+
+
+    ;
+    text-align: center;
+    
+   
+
+     
+}
+header{
+    grid-area: head;
+    color: white;
+    background: #4c70b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.snav{
+    grid-area: snav;
+    color: white;
+    background: #c2631e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+
+}
+.sbar{
+    grid-area: sbar;
+    color: white;
+    background: #c2631e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+footer{
+    grid-area: foot;
+    color: white;
+    background: #4c70b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+article{
+grid-area: main;
+color: white;
+background: #7f9a39;
+display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
