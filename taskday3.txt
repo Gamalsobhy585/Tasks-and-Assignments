@@ -1,0 +1,255 @@
+part1 
+<?php 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $email = $group = $classdetails = $gender = "";
+    $languages = [];
+  
+    $name =  $_REQUEST["Name"];
+    $email =  $_REQUEST["email"];
+    $group =  $_REQUEST["Group"];
+    $classdetails =  $_REQUEST["classdetails"];
+    $gender =  $_REQUEST["gender"];
+    $languages = $_REQUEST["languages"];   
+    $errors = [];
+}
+ //validation 
+
+ if (empty($_REQUEST["Name"])) {
+    $errors[] = "Name is required";}
+    if (empty($_REQUEST["email"])) {
+        $errors[] = "Email is required";
+    }
+    if (empty($_REQUEST["Group"])) {
+        $errors[] = "Group is required";
+    } 
+    if (empty($_REQUEST["classdetails"])) {
+        $errors[] = "Class details are required";
+    }
+    if (empty($_REQUEST["gender"])) {
+        $errors[] = "Gender is required";
+    } 
+    if (empty($_REQUEST["languages"])) {
+        $errors[] = "At least one language must be selected";
+    }
+    if (empty($_REQUEST["agree"])) {
+        $errors[] = "You must agree to the terms";
+    }
+
+
+
+
+
+ if(isset($_REQUEST["submitButton"]))
+ if($_REQUEST["name"] || $_REQUEST["email"] || $_REQUEST["Group"] ||$_REQUEST["classdetails"] || $_REQUEST["gender"] || $_REQUEST["languages"]   )
+ 
+ {
+    echo "Form submitted successfully";  
+    echo "<p><strong>Name:</strong> $name</p>";
+    echo "<p><strong>Email:</strong> $email</p>";
+    echo "<p><strong>Group:</strong> $group</p>";
+    echo "<p><strong>Class Details:</strong> $classdetails</p>";
+    echo "<p><strong>Gender:</strong> $gender</p>";
+    echo "<p><strong>Languages:</strong> $languages</p>";
+}  
+ ?>
+<html>
+    <body>
+        <form action="<?php $_PHP_SELF?>" method="post" >
+        <br>
+        <br>
+
+<input type="text" name="Name" placeholder="name">
+<br>
+<br>
+
+<input type="email" name="email" id="email"  placeholder="email">
+<br>
+<br>
+
+<input type="text" name="Group"  placeholder="A or B ">
+<br>
+<br>
+
+<textarea name="classdetails" id="" cols="30" placeholder="Class Details"  rows="10"></textarea>
+<br>
+<br>
+<label>  
+Gender:   
+</label>  <br>  
+<input type="radio" id="gender" name="gender" value="male"/> Male    
+<br>  
+<input type="radio" id="gender" name="gender" value="female"/> Female <br/>   
+<label for="lang">Language</label>
+      <select multiple name="languages" id="lang">
+        <option value="javascript">JavaScript</option>
+        <option value="php">PHP</option>
+        <option value="java">Java</option>
+        <option value="golang">Golang</option>
+        <option value="python">Python</option>
+        <option value="c#">C#</option>
+        <option value="C++">C++</option>
+        <option value="erlang">Erlang</option>
+      </select>
+      <br>  
+
+      <input type="checkbox" id="agree" name="agree" value="agree">
+<label for="agree">Agree</label><br>
+      <input type="submit" value="Submit" name="submitButton" />
+
+    </form>
+    </body>
+</html> <?php 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $email = $group = $classdetails = $gender = "";
+    $languages = [];
+  
+    $name =  $_REQUEST["Name"];
+    $email =  $_REQUEST["email"];
+    $group =  $_REQUEST["Group"];
+    $classdetails =  $_REQUEST["classdetails"];
+    $gender =  $_REQUEST["gender"];
+    $languages = $_REQUEST["languages"];   
+    $errors = [];
+}
+ //validation 
+
+ if (empty($_REQUEST["Name"])) {
+    $errors[] = "Name is required";}
+    if (empty($_REQUEST["email"])) {
+        $errors[] = "Email is required";
+    }
+    if (empty($_REQUEST["Group"])) {
+        $errors[] = "Group is required";
+    } 
+    if (empty($_REQUEST["classdetails"])) {
+        $errors[] = "Class details are required";
+    }
+    if (empty($_REQUEST["gender"])) {
+        $errors[] = "Gender is required";
+    } 
+    if (empty($_REQUEST["languages"])) {
+        $errors[] = "At least one language must be selected";
+    }
+    if (empty($_REQUEST["agree"])) {
+        $errors[] = "You must agree to the terms";
+    }
+
+
+
+
+
+ if(isset($_REQUEST["submitButton"]))
+ if($_REQUEST["name"] || $_REQUEST["email"] || $_REQUEST["Group"] ||$_REQUEST["classdetails"] || $_REQUEST["gender"] || $_REQUEST["languages"]   )
+ 
+ {
+    echo "Form submitted successfully";  
+    echo "<p><strong>Name:</strong> $name</p>";
+    echo "<p><strong>Email:</strong> $email</p>";
+    echo "<p><strong>Group:</strong> $group</p>";
+    echo "<p><strong>Class Details:</strong> $classdetails</p>";
+    echo "<p><strong>Gender:</strong> $gender</p>";
+    echo "<p><strong>Languages:</strong> $languages</p>";
+}  
+ ?>
+<html>
+    <body>
+        <form action="<?php $_PHP_SELF?>" method="post" >
+        <br>
+        <br>
+
+<input type="text" name="Name" placeholder="name">
+<br>
+<br>
+
+<input type="email" name="email" id="email"  placeholder="email">
+<br>
+<br>
+
+<input type="text" name="Group"  placeholder="A or B ">
+<br>
+<br>
+
+<textarea name="classdetails" id="" cols="30" placeholder="Class Details"  rows="10"></textarea>
+<br>
+<br>
+<label>  
+Gender:   
+</label>  <br>  
+<input type="radio" id="gender" name="gender" value="male"/> Male    
+<br>  
+<input type="radio" id="gender" name="gender" value="female"/> Female <br/>   
+<label for="lang">Language</label>
+      <select multiple name="languages" id="lang">
+        <option value="javascript">JavaScript</option>
+        <option value="php">PHP</option>
+        <option value="java">Java</option>
+        <option value="golang">Golang</option>
+        <option value="python">Python</option>
+        <option value="c#">C#</option>
+        <option value="C++">C++</option>
+        <option value="erlang">Erlang</option>
+      </select>
+      <br>  
+
+      <input type="checkbox" id="agree" name="agree" value="agree">
+<label for="agree">Agree</label><br>
+      <input type="submit" value="Submit" name="submitButton" />
+
+    </form>
+    </body>
+</html>
+
+
+
+
+part2
+<?php
+$students = [
+    ['name' => 'Alaa', 'email' => 'ahmed@test.com', 'status' => 'PHP'],
+    ['name' => 'Shamy', 'email' => 'ali@test.com', 'status' => '.Net'],
+    ['name' => 'Youssef', 'email' => 'basem@test.com', 'status' => 'PHP'],
+    ['name' => 'Waleid', 'email' => 'farouk@test.com', 'status' => '.Net'],
+    ['name' => 'Rahma', 'email' => 'hany@test.com', 'status' => 'PHP'],
+];
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Table</title>
+    <style>
+.row-blue {
+            background-color: red; 
+        }
+        .row-red {
+            background-color: blue;
+        }
+        </style>
+</head>
+<body>
+
+<h2>Students Table</h2>
+
+<table>
+    <thead>
+     <tr class="<?php echo $student['status'] == 'PHP' ? 'row-blue' : 'row-red'; ?>">
+             <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($students as $student): ?>
+        <tr>
+            <td><?php echo $student['name']; ?></td>
+            <td><?php echo $student['email']; ?></td>
+            <td><?php echo $student['status']; ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+</body>
+</html>
