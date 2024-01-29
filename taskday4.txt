@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <body>
+      <div class="position-absolute top-50 start-50 translate-middle ">
+    <div class="container d-flex w-100  align-items-center justify-content-start border  ">
+        <div class="mb-3">
+  <label  class="form-label">Name :</label>
+  <input type="text" class="form-control w-100" name="name"  placeholder="Your Name">
+  <br>
+  <label  class="form-label">Email :</label>
+  <input type="email" class="form-control w-100" name="email"  placeholder="Your Email">
+
+<p>What is your gender?</p>
+<input type="radio" name="gender" value="male"> Male
+<br>
+<input type="radio" name="gender" value="female"> Female
+<br>
+
+<input type="checkbox"  name="mail_status" >
+
+<label > Recieve E-mails From US</label><br>
+<br>
+<input class="bg-info" type="submit"  name="submitbutton" value="submit">
+<button type="reset" value="Reset">Reset</button>
+</div>
+<br>
+<br>
+
+</div>
+</div>
+    
+</body>
+</html>
+<?php
+
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = '';
+$dbname ='k2';
+$conn = mysqli_connect ( $dbhost, $dbuser, $dbpass, $dbname);
+if(! $conn ) {
+ die('Could not connect: ' . mysqli_error($conn));
+}
+
+echo 'Connected successfully';
+
+
+ 
+   //select
+   mysqli_select_db( $conn,$dbname );
+
+   //create table
+   $sql = 'CREATE TABLE users( user_id INT NOT NULL AUTO_INCREMENT,
+   user_name VARCHAR(20) NOT NULL,
+   user_email  VARCHAR(20) NOT NULL,
+   user_gender   VARCHAR(20) NOT NULL,
+   mail_Status    VARCHAR(20) NOT NULL,
+   primary key ( user_id ))';
+
+     $retval = mysqli_query( $conn,$sql );
+   
+   if(! $retval ) {
+      die('Could not create table: ' . mysqli_error($conn));
+   }
+    
+   echo "<br>Database Table  created successfully\n";
+  
+
+
+   $name =  $_REQUEST["Name"];
+$email =  $_REQUEST["email"];
+$gender =  $_REQUEST["gender"];
+$mail_status = $_REQUEST["mail_status"];
+if(isset($_REQUEST["submitButton"]))
+ if($_REQUEST["name"] || $_REQUEST["email"] || $_REQUEST["gender"] || $_REQUEST["mail_status"]){
+  echo "Form submitted successfully";  
+  $query = "INSERT INTO users (name,email,gender,mail_Status) Values ('$name','$email','$gender','$mail_status')";
+  $query_run=mysqli_query($conn,$query);
+  if($query_run){
+echo"inserted";
+  }
+  else{
+    echo"there was a problem";
+  }
+ }
+//  mysqli_close($conn);
+?>
