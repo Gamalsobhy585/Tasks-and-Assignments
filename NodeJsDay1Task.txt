@@ -1,0 +1,194 @@
+Task1&&Task2
+HTml Structure for index&about&login pages
+
+
+
+index page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Welcome to my WebSite 
+  <p>go to <a href="./login.html"> login</a> page</p>  
+    <script>
+        alert("Welcome Gamal");
+    </script>
+</body>
+</html>
+
+
+About page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <h1>about</h1>
+    <p>go to <a href="./index.html"> index</a> page</p>  
+
+    <script src="front.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+Login page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="loginpost" method="post"> 
+  Username: <input type="text" name="username"><br>
+  Password: <input type="password" name="password"><br>
+
+  <input type="submit"  >
+    </form>
+   <p>go to <a href="./about.html"> About</a> page</p>  
+
+</body>
+</html>
+
+
+
+
+Javascript: for both task1 and task2 (the validation of the password && the username inserted in the script)
+const http =require("http");
+const fs = require("fs");
+const qs =require("querystring");
+const url = require("url");
+
+var handler=function(req,res){
+    if(req.url =="/index.html"){
+        res.writeHead(200);
+        fs.readFile("index.html",function(err,data){
+            res.write(data);
+            res.end("");
+    })
+}else if(req.url== "/about.html"){
+    res.writeHead(200);
+    fs.readFile("about.html",function(err,data){
+        res.write(data);
+        res.end("");
+})
+}else if(req.url== "/app.css"){
+    res.writeHead(200);
+    fs.readFile("app.css",function(err,data){
+        res.write(data);
+        res.end("");
+})
+}else if(req.url== "/emps.json"){
+    res.writeHead(200,{"content-type":"application/json"});
+    let emps =[{name:"Ahmed",age:34},{name:"Ali",age:25}]
+
+   
+        res.write(JSON.stringify(emps));
+        res.end("");
+}
+else if(req.url== "/front.js"){
+    res.writeHead(200);
+    fs.readFile("front.js",function(err,data){
+        res.write(data);
+        res.end("");
+})}
+
+else if(req.url== "/login.html"){
+    res.writeHead(200);
+    fs.readFile("login.html",function(err,data){
+        res.write(data);
+        res.end("");
+})
+
+}
+else if (req.url.indexOf("/login?") == 0){
+    res.writeHead(200);
+    function validatePassword(password) {
+      
+        if (password.length < 8) {
+            return false;
+        }
+        return true;
+    }
+    let parsedUrl = url.parse(req.url,false);
+    let parsedQuery = qs.parse(parsedUrl.query);
+    console.log(parsedQuery);
+    
+    console.log(req.url);
+    if(parsedQuery.username=="gamal"& parsedQuery.password =="12345678"){
+        res.write("login success")
+    }
+    else{
+        res.write("login failed")
+    }
+    res.end("");
+
+}
+else if (req.url ==("/loginpost") ){
+    res.writeHead(200);
+    let bodyReq='';
+    req.on("data",function(data){
+        bodyReq +=data;
+    })
+req.on('end',function(){
+    console.log(bodyReq)
+    let parsedQuery =qs.parse(bodyReq);
+    console.log(parsedQuery);
+    if(parsedQuery.username=="gamal"& parsedQuery.password =="123456"){
+        res.write("login success")
+    }
+    else{
+        res.write("login failed")
+    }
+    res.end("");
+
+})   
+}
+else{
+    res.writeHead(404);
+    res.write("error");
+
+    res.end("");
+}
+};
+const srv = http.createServer(handler);
+srv.listen(8080);
+
+
+
+
+
+
+Task 3
+const express = require("express");
+const app = express();
+
+app.get("/index.html",function(req,res){
+    res.send("<h1>welcome</h1>")
+})
+
+app.get("/about.html",function(req,res){
+    res.send("<h1>about</h1>")
+})
+
+app.listen(8081,function(){
+    console.log("server started");
+})
+
+
+
+
